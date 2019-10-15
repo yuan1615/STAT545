@@ -1,8 +1,8 @@
-# Òªµã
-# Ö÷Òªº¯Êı£º
-# filter:É¸Ñ¡Âß¼­ÖµÎªTrueµÄĞĞ
-# %>% £º¹ÜµÀº¯Êı
-# select£ºÑ¡ÔñÁĞ
+# è¦ç‚¹
+# ä¸»è¦å‡½æ•°ï¼š
+# filter:ç­›é€‰é€»è¾‘å€¼ä¸ºTrueçš„è¡Œ
+# %>% ï¼šç®¡é“å‡½æ•°
+# selectï¼šé€‰æ‹©åˆ—
 
 
 ##### Chapter 6 Introduction to dplyr #####
@@ -19,7 +19,7 @@ gapminder
 class(gapminder)
 as_tibble(iris)
 
-#------ 6.2 Think before you create excerpts of your data ¡­ ------
+#------ 6.2 Think before you create excerpts of your data â€¦ ------
 (canada <- gapminder[241:252, ])
 
 #------ 6.3 Use filter() to subset data row-wise ------

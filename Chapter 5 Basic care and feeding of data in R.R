@@ -1,6 +1,6 @@
-# Òªµã£º
-# Êı¾İ¸ñÊ½tibbel
-# ³£ÓÃº¯Êı£º
+# è¦ç‚¹ï¼š
+# æ•°æ®æ ¼å¼tibbel
+# å¸¸ç”¨å‡½æ•°ï¼š
 # str
 # head, tail, as_tibble,
 # names, ncol, length, dim, nrow
@@ -19,7 +19,7 @@ rm(list = ls())
 #------ 5.3 Get the Gapminder data ------
 library(gapminder)
 
-#------ 5.4 Meet the gapminder data frame or ¡°tibble¡± ------
+#------ 5.4 Meet the gapminder data frame or â€œtibbleâ€ ------
 str(gapminder)
 
 library(tidyverse)
