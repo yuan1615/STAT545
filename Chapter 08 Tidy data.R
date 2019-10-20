@@ -68,7 +68,7 @@ df <- within(df, Race <- revalue(Race, c(B = "BB")))
 #---- 1.2 Tidy Lord of the Rings data ----
 library(tidyverse)
 
-lotr_dat <- read_tsv(file.path("Chapter 8 Data", "lotr_clean.tsv"), col_types = cols(
+lotr_dat <- read_tsv(file.path("Chapter 08 Data", "lotr_clean.tsv"), col_types = cols(
   Film = col_character(),
   Chapter = col_character(),
   Character = col_character(),
@@ -107,7 +107,7 @@ untidy_films <- lotr_tidy %>%
   map(~ spread(.x, Gender, Words))
 ## leaves files behind for lesson on how to tidy
 walk2(untidy_films,
-      file.path("Chapter 8 Data", paste0(gsub(" ", "_", names(untidy_films)), ".csv")),
+      file.path("Chapter 08 Data", paste0(gsub(" ", "_", names(untidy_films)), ".csv")),
       ~ write_csv(.x, .y))
 ## remove film name
 untidy_films <- untidy_films %>% 
@@ -117,7 +117,7 @@ untidy_gender <- lotr_tidy %>%
   split(.$Gender) %>% 
   map(~ spread(.x, key = Race, value = Words)) %>% 
   map(~ select(.x, Gender, everything()))
-walk2(untidy_gender, file.path("Chapter 8 Data", paste0(names(untidy_gender), ".csv")),
+walk2(untidy_gender, file.path("Chapter 08 Data", paste0(names(untidy_gender), ".csv")),
       ~ write_csv(.x, .y))
 
 lotr_tidy %>% 
@@ -142,9 +142,9 @@ p + geom_bar(stat = "identity", position = "dodge") +
 
 #---- 2.1 Import untidy Lord of the Rings data ----
 library(tidyverse)
-fship <- read_csv(file.path("Chapter 8 Data", "The_Fellowship_Of_The_Ring.csv"))
-ttow <- read_csv(file.path("Chapter 8 Data", "The_Two_Towers.csv"))
-rking <- read_csv(file.path("Chapter 8 Data", "The_Return_Of_The_King.csv")) 
+fship <- read_csv(file.path("Chapter 08 Data", "The_Fellowship_Of_The_Ring.csv"))
+ttow <- read_csv(file.path("Chapter 08 Data", "The_Two_Towers.csv"))
+rking <- read_csv(file.path("Chapter 08 Data", "The_Return_Of_The_King.csv")) 
 rking
 
 #---- 2.2 Collect untidy Lord of the Rings data into a single data frame ----
@@ -166,11 +166,11 @@ lotr_tidy
 
 #---- 2.4 Write the tidy data to a delimited file ----
 
-write_csv(lotr_tidy, path = file.path("Chapter 8 Data", "lotr_tidy.csv"))
+write_csv(lotr_tidy, path = file.path("Chapter 08 Data", "lotr_tidy.csv"))
 
 #---- 2.5 Exercises ----
-Female <- read_csv(file.path("Chapter 8 Data", "Female.csv"))
-Male <- read_csv(file.path("Chapter 8 Data", "Male.csv"))
+Female <- read_csv(file.path("Chapter 08 Data", "Female.csv"))
+Male <- read_csv(file.path("Chapter 08 Data", "Male.csv"))
 
 (lotr_untidy <- bind_rows(Female, Male))
 
@@ -208,7 +208,7 @@ lotr_tidy %>%
 # 将整洁的数据变乱
 library(tidyverse)
 
-lotr_tidy <- read_csv(file.path("Chapter 8 Data", "lotr_tidy.csv"))
+lotr_tidy <- read_csv(file.path("Chapter 08 Data", "lotr_tidy.csv"))
 
 lotr_tidy
 
@@ -235,9 +235,9 @@ lotr_tidy %>%
 #---- 4.1 More about rbind()ing data frames ----
 library(tidyverse)
 
-fship <- read.csv(file.path("Chapter 8 Data", "The_Fellowship_Of_The_Ring.csv"))
-ttow <- read.csv(file.path("Chapter 8 Data", "The_Two_Towers.csv"))
-rking <- read.csv(file.path("Chapter 8 Data", "The_Return_Of_The_King.csv"))  
+fship <- read.csv(file.path("Chapter 08 Data", "The_Fellowship_Of_The_Ring.csv"))
+ttow <- read.csv(file.path("Chapter 08 Data", "The_Two_Towers.csv"))
+rking <- read.csv(file.path("Chapter 08 Data", "The_Return_Of_The_King.csv"))  
 lotr_untidy <- rbind(fship, ttow, rking)
 
 # ！！！！！！！！！！慎用！！！！！！！！！！
@@ -255,7 +255,7 @@ lotr_untidy_2$Film <-
                     "The Return Of The King"))
 
 #---- 4.3 Row-binding a list of data frames ----
-lotr_files <- file.path("Chapter 8 Data", c("The_Fellowship_Of_The_Ring.csv",
+lotr_files <- file.path("Chapter 08 Data", c("The_Fellowship_Of_The_Ring.csv",
                                   "The_Two_Towers.csv",
                                   "The_Return_Of_The_King.csv"))
 lotr_list <- lapply(lotr_files, read.csv)

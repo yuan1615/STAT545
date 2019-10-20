@@ -98,7 +98,7 @@ gap_life_exp <- gapminder %>%
 gap_life_exp
 
 #------ 9.6 Write rectangular data out ------
-write_csv(gap_life_exp, file.path("Chapter 9 Data", "gap_life_exp.csv"))
+write_csv(gap_life_exp, file.path("Chapter 09 Data", "gap_life_exp.csv"))
 
 #------ 9.7 Invertibility可逆性 ------
 # 写到csv文件，再读入后，因子水平会变化
@@ -114,26 +114,26 @@ head(gap_life_exp)
 
 #------ 9.9 saveRDS() and readRDS() ------
 # 保存更改好的因素水平，也就是保存9.8的工作
-saveRDS(gap_life_exp, file.path("Chapter 9 Data", "gap_life_exp.rds"))
+saveRDS(gap_life_exp, file.path("Chapter 09 Data", "gap_life_exp.rds"))
 
 rm(gap_life_exp)
 gap_life_exp
 
-gap_life_exp <- readRDS(file.path("Chapter 9 Data", "gap_life_exp.rds"))
+gap_life_exp <- readRDS(file.path("Chapter 09 Data", "gap_life_exp.rds"))
 gap_life_exp
 head(levels(gap_life_exp$country))
 
 #------ 9.10 Retaining factor levels upon re-import ------
 (country_levels <- tibble(original = head(levels(gap_life_exp$country))))
-write_csv(gap_life_exp, file.path("Chapter 9 Data", "gap_life_exp.csv"))
-saveRDS(gap_life_exp, file.path("Chapter 9 Data", "gap_life_exp.rds"))
+write_csv(gap_life_exp, file.path("Chapter 09 Data", "gap_life_exp.csv"))
+saveRDS(gap_life_exp, file.path("Chapter 09 Data", "gap_life_exp.rds"))
 
 rm(gap_life_exp)
 head(gap_life_exp)
 
-gap_via_csv <- read_csv(file.path("Chapter 9 Data", "gap_life_exp.csv")) %>% 
+gap_via_csv <- read_csv(file.path("Chapter 09 Data", "gap_life_exp.csv")) %>% 
   mutate(country = factor(country))
-gap_via_rds <- readRDS(file.path("Chapter 9 Data", "gap_life_exp.rds"))
+gap_via_rds <- readRDS(file.path("Chapter 09 Data", "gap_life_exp.rds"))
 
 country_levels <- country_levels %>% 
   mutate(via_csv = head(levels(gap_via_csv$country)),
@@ -142,10 +142,10 @@ country_levels <- country_levels %>%
 #------ 9.11 dput() and dget() ------
 
 ## first restore gap_life_exp with our desired country factor level order
-gap_life_exp <- readRDS(file.path("Chapter 9 Data", "gap_life_exp.rds"))
-dput(gap_life_exp, file.path("Chapter 9 Data", "gap_life_exp.txt"))
+gap_life_exp <- readRDS(file.path("Chapter 09 Data", "gap_life_exp.rds"))
+dput(gap_life_exp, file.path("Chapter 09 Data", "gap_life_exp.txt"))
 
-gap_life_exp_dget <- dget(file.path("Chapter 9 Data", "gap_life_exp.txt"))
+gap_life_exp_dget <- dget(file.path("Chapter 09 Data", "gap_life_exp.txt"))
 country_levels <- country_levels %>% 
   mutate(via_dput = head(levels(gap_life_exp_dget$country)))
 
