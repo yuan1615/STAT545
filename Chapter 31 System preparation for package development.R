@@ -27,7 +27,7 @@ library(devtools)
 
 # https://cran.r-project.org/bin/windows/Rtools/
 
-# 安装的时候务必选择编辑系统PATH
+# 安装的时候务必选择不能编辑系统PATH/ Rstudio会自动修改
 # !!!!!select the box for “Edit the system PATH”.!!!!!
 
 find_rtools()
