@@ -4,9 +4,9 @@ username:
 account: yuan1615
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
-appId: 1369903
-bundleId: 2529159
+appId: 1374593
+bundleId: 2531620
 url: https://yuan1615.shinyapps.io/BCLiquorStore/
-when: 1571836696.97627
+when: 1571901314.64748
 asMultiple: FALSE
 asStatic: FALSE
